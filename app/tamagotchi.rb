@@ -1,4 +1,5 @@
 require 'erb'
+require './app/lib/logic'
 
 class Pet
 
@@ -29,16 +30,24 @@ class Pet
         response.set.cookies('skills', @skills)
         response.set.cookies('sleep', @sleep)
         response.redirect('/index')
+
     when '/index'
       if [@food, @water, @energy, @happy, @sleep].one?(&:negative?)
         Rack::Response.new('Game Over', 404)
         Rack::Response.new(render("game_over.html.erb"))
       elsif @skills >= 50
-        Rack::Response.new('End Game', 404)
+        Rack::Response.new('You win', 404)
         Rack::Response.new(render("end_game.html.erb"))
       else
         Rack::Response.new(render("index.html.erb"))
       end
+
+    when '/change'
+      return self.change_params(@req, 'food', @params) if @req.params['food']
+      return self.change_params(@req, 'water', @params)   if @req.params['water']
+      return self.change_params(@req, 'happy', @params)  if @req.params['happy']
+      return self.change_params(@req, 'energy', @params)  if @req.params['energy']
+      return self.change_params(@req, 'skills',@params)  if @req.params['skills']
   end
   
   def render(layout)
