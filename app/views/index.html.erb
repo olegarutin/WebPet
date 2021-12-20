@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body class="bg-indigo-300">
+  <div class="w-full max-w-md mx-auto bg-white shadow-lg rounded px-12 py-6 mt-40 text-center">
+    <h1 class="mt-2 mb-4 text-2xl"> <%= get('name') %> was born!</h1>
+    <div class="flex">
+      <span class="border border-red-400 p-1 rounded-full mx-1">Food: <%= get('food') %>/20</span>
+      <span class="border border-blue-400 p-1 rounded-full mx-1">Water: <%= get('water') %>/20</span>
+      <span class="border border-yellow-400 p-1 rounded-full mx-1">Happy: <%= get('happy') %>/20</span>
+      <span class="border border-green-400 p-1 rounded-full mx-1">Energy: <%= get('energy') %>/20</span>
+      <span class="border border-blue-400 p-1 rounded-full mx-1">Power: <%= get('power') %>/20</span>
+    </div>
+    <div class="flex flex-row flex-wrap justify-center gap-y-2 mt-2">
+      <form action="/change" method="get">
+        <button type="submit" name="food" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Feed</button>
+        <button type="submit" name="water" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Drink</button>
+        <button type="submit" name="happy" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Play</button>
+        <button type="submit" name="energy" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Sleep</button>
+        <button type="submit" name="power" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Train</button>
+      </form>
+      <div class="flex">
+        <form action="/exit" method="get">
+          <button type="submit" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Exit</button>
+        </form>
+        <form action="/simple" method="get">
+          <button type="submit" class="cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Steroids</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

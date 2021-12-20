@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title>WebPet</title>
+</head>
+<body class="bg-indigo-300">
+  <div class="form">
+    <form action="/initialize" method="get" class="w-full max-w-md mx-auto bg-white shadow-lg rounded px-12 py-6 mt-40 text-center">
+      <label class="mb-6">Enter name for your pet:</label>
+      <input type="text" name="name" placeholder="Name" required class="shadow appearance-none w-full py-2 px-3 my-4 text-gray-700 border focus:outline-none">
+      <button type="submit" class="cursor-pointer w-2/5 min-w-max bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 m-1 rounded">Start</button>
+    </form>
+  </div>
+</body>
+</html>
