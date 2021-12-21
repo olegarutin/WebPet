@@ -35,12 +35,15 @@ class Pet
       end
 
     when '/index'
-      if [@food, @water, @happy, @energy].one?(&:negative?)
+      if [get('food'), get('water'), get('happy'), get('energy')].one?(&:negative?)
         Rack::Response.new('Game Over', 404)
         Rack::Response.new(render('end.html.erb'))
       elsif get('power').to_i >= 20
         Rack::Response.new('You win', 404)
         Rack::Response.new(render('win.html.erb'))
+      elsif get('power').to_i <= 0
+        Rack::Response.new('You lose', 404)
+        Rack::Response.new(render('low_power.html.erb'))
       else
         Rack::Response.new(render('index.html.erb'))
       end
